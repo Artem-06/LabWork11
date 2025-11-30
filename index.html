@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Лабораторна робота №11</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<main>
+			<div id="word-card">
+				<span id="current-word"></span>
+			</div>
+			<div id="controls">
+				<span id="previous-btn">&#x1F880</span>
+				<p id="count">0/10</p>
+				<span id="next-btn">&#x1F882</span>
+			</div>
+			<div id="input-container">
+				<input type="text" id="translation-input" placeholder="Переклад">
+			</div>
+			<div id="stats-links">
+				<h2 id="statistics-link">Статистика</h2>
+			</div>
+			<div id="results-display">
+				<div id="correct-count-container">
+					<p class="stats-label correct-label">Вірно</p>
+					<span id="correct-count" class="correct-value">0</span>
+				</div>
+				<div id="incorrect-count-container">
+					<p class="stats-label incorrect-label">Невірно</p>
+					<span id="incorrect-count" class="incorrect-value">0</span>
+				</div>
+			</div>
+		</main>
+		<div id="modal" class="hidden">
+			<div id="modal-content">
+				<h3>Ваш рівень знань:</h3>
+				<p id="knowledge-level"></p>
+				<button id="close-modal">Закрити</button>
+			</div>
+		</div>
+	</body>
+</html>
