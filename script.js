@@ -22,17 +22,17 @@ $(function() {
     shuffle(words);
 
     const TOTAL = words.length;
-    let idx = 0;
+    let index = 0;
     const states = Array(TOTAL).fill(null);
 
     function render() {
-        const cur = words[idx];
-        $('#current-word').text(cur.word);
-        $('#count').text(`${idx + 1}/${TOTAL}`);
+        const currentWord = words[index];
+        $('#current-word').text(currentWord.word);
+        $('#count').text(`${index + 1}/${TOTAL}`);
         $('#translation-input')
-            .val(states[idx] === true ? cur.translation : '') // показує правильний переклад тільки коли вірно
-            .prop('disabled', states[idx] !== null)
-            .css('border-color', states[idx] === true ? 'green' : states[idx] === false ? 'red' : '#007bff');
+            .val(states[index] === true ? currentWord.translation : '') // показує правильний переклад тільки коли вірно
+            .prop('disabled', states[index] !== null)
+            .css('border-color', states[index] === true ? 'green' : states[index] === false ? 'red' : '#007bff');
         updateStats();
     }
 
@@ -44,14 +44,14 @@ $(function() {
     }
 
     function checkCurrent() {
-        if (states[idx] !== null) return; // вже перевірено
+        if (states[index] !== null) return; // вже перевірено
         const input = $('#translation-input').val().trim().toLowerCase();
         if (!input) {
             alert('Введіть переклад перед перевіркою!');
             return;
         }
-        const correct = words[idx].translation.toLowerCase();
-        states[idx] = (input === correct);
+        const correct = words[index].translation.toLowerCase();
+        states[index] = (input === correct);
         render();
         // якщо всі перевірені — показуємо результат
         if (states.every(s => s !== null)) showResult();
@@ -59,24 +59,24 @@ $(function() {
 
     function showResult() {
         const correct = states.filter(s => s === true).length;
-        const pct = Math.round((correct / TOTAL) * 100);
+        const percent = Math.round((correct / TOTAL) * 100);
         let level = 'Початковий (D)';
-        if (pct >= 90) level = 'Відмінний (A)';
-        else if (pct >= 70) level = 'Хороший (B)';
-        else if (pct >= 50) level = 'Середній (C)';
+        if (percent >= 90) level = 'Відмінний (A)';
+        else if (percent >= 70) level = 'Хороший (B)';
+        else if (percent >= 50) level = 'Середній (C)';
 
         $('#knowledge-level').text(
-            `Ви відповіли правильно на ${correct} з ${TOTAL} слів. Ваш відсоток: ${pct}%. Рівень: ${level}.`
+            `Ви відповіли правильно на ${correct} з ${TOTAL} слів. Ваш відсоток: ${percent}%. Рівень: ${level}.`
         );
         $('#modal').removeClass('hidden');
     }
 
     $('#word-card').on('click', checkCurrent);
     $('#previous-btn').on('click', () => {
-        if (idx > 0) { idx--; render(); }
+        if (index > 0) { index--; render(); }
     });
     $('#next-btn').on('click', () => {
-        if (idx < TOTAL - 1) { idx++; render(); }
+        if (index < TOTAL - 1) { index++; render(); }
     });
     $('#statistics-link').on('click', showResult);
     $('#close-modal').on('click', () => $('#modal').addClass('hidden'));
@@ -89,4 +89,5 @@ $(function() {
     });
 
     render();
+
 });
