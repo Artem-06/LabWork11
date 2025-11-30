@@ -80,13 +80,13 @@ main {
     font-weight: bold;
     cursor: pointer;
     user-select: none;
+    margin: 0;
 }
 
 #results-display {
     display: flex;
     justify-content: space-around;
     width: 300px;
-    margin-top: 10px;
 }
 
 #correct-count-container, #incorrect-count-container {
@@ -95,7 +95,7 @@ main {
 
 .stats-label {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin: 5px 0 10px 0;
 }
 
 .correct-value, .incorrect-value {
