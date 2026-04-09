@@ -1,0 +1,10 @@
+/* Navigation & Brand Styles */
+.custom-logo {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .custom-logo {
+  transform: rotate(10deg) scale(1.1);
+}

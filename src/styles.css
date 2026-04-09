@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --header-height: 0px;
+  --footer-height: 0px;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Press Start 2P', system-ui;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+/* Common Layout Components */
+footer {
+  background: linear-gradient(180deg, var(--bs-info), rgba(255, 255, 255, 1));
+}

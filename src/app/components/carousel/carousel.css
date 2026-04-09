@@ -1,0 +1,57 @@
+/* Background & Filter Settings */
+.slide {
+  background-image: url('CHMNU.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+/* Carousel Items */
+.carousel-item {
+  --item-height: calc(100vh - var(--header-height) - var(--footer-height));
+  position: relative;
+  height: var(--item-height);
+  width: 100%;
+}
+
+.carousel-item img {
+  height: calc(var(--item-height) * 0.9) !important;
+  object-fit: contain;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Carousel Controls & Navigation */
+.carousel-control-prev,
+.carousel-control-next {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center;
+  height: 100%;
+  width: 15%;
+  z-index: 5;
+  overflow: visible;
+}
+
+.custom-arrow img {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  display: block;
+}
