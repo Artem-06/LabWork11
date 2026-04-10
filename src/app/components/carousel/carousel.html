@@ -1,17 +1,22 @@
 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img
-        ngSrc="images/carousel/Otori.webp"
-        class="d-flex justify-content-center"
-        alt="Emu Otori chibi"
-        fill
-      />
+      <div class="img_card" (click)="flipImg()">
+        <div *appIf="!isFlipped" class="card__front">
+          <img
+            ngSrc="images/carousel/Otori.webp"
+            alt="Emu Otori chibi"
+            fill
+          />
+        </div>
+        <div *appIf="isFlipped" class="card__back">
+          <a class="btn btn-light btn-lg shadow-lg" href="https://youtu.be/SUm-7_KPY6I">Link</a>
+        </div>
+      </div>
     </div>
     <div class="carousel-item">
       <img
         ngSrc="images/carousel/img_illust_mikuv6.webp"
-        class="d-flex justify-content-center"
         alt="Hatsune Miku V6"
         fill
       />
@@ -19,7 +24,6 @@
     <div class="carousel-item">
       <img
         ngSrc="images/carousel/PADORU with text.png"
-        class="d-flex justify-content-center"
         alt="PADORU PADORU"
         fill
       />
@@ -27,7 +31,6 @@
     <div class="carousel-item">
       <img
         ngSrc="images/carousel/Job-Application.webp"
-        class="d-flex justify-content-center"
         alt="Job Application"
         fill
       />
